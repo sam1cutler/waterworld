@@ -1,25 +1,50 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+
+  const [ movieList, setMovieList ] = useState( [] );
+
+  useEffect( () => {
+
+    fetch(`https://jsonmock.hackerrank.com/api/movies`)
+      .then(response => response.json())
+      .then(responseJson => {
+        setMovieList(responseJson.data);
+      })
+
+  }, [] )
+
+  function renderMovieList(listOfMovies) {
+
+    return listOfMovies.map( activeMovie => {
+      const { Title, Year, imdbID } = activeMovie;
+
+      return (
+        <div 
+          key={imdbID}
+          className='individual-movie'
         >
-          Learn React
-        </a>
-      </header>
+          <h2>{Title}</h2>
+          <p>Released {Year}</p>
+        </div>
+      )
+    })
+
+  }
+
+  return (
+
+    <div className="App">
+      <h1>Waterworlds</h1>
+      {movieList[0] === undefined
+        ? <div>Loading...</div>
+        : renderMovieList(movieList)
+      }
     </div>
+
   );
+
 }
 
 export default App;
