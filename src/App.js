@@ -1,46 +1,58 @@
-import { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
+import { Route } from 'react-router';
 import './App.css';
+
+import Movies from './Movies';
+import Articles from './Articles';
+import LandingPage from './LandingPage';
 
 function App() {
 
-  const [ movieList, setMovieList ] = useState( [] );
+  const renderContent = () => {
 
-  useEffect( () => {
-
-    fetch(`https://jsonmock.hackerrank.com/api/movies`)
-      .then(response => response.json())
-      .then(responseJson => {
-        setMovieList(responseJson.data);
-      })
-
-  }, [] )
-
-  function renderMovieList(listOfMovies) {
-
-    return listOfMovies.map( activeMovie => {
-      const { Title, Year, imdbID } = activeMovie;
-
-      return (
-        <div 
-          key={imdbID}
-          className='individual-movie'
-        >
-          <h2>{Title}</h2>
-          <p>Released {Year}</p>
-        </div>
-      )
-    })
+    return (
+      <>
+        <Route 
+          path='/'
+          exact
+          component={LandingPage}
+        />
+        <Route 
+          path='/movies'
+          component={Movies}
+        />
+        <Route 
+          path='/articles'
+          component={Articles}
+        />
+      </>
+    )
 
   }
 
   return (
 
     <div className="App">
-      <h1>Waterworlds</h1>
-      {movieList[0] === undefined
-        ? <div>Loading...</div>
-        : renderMovieList(movieList)
-      }
+      <NavLink
+        to='/'
+      >
+        <h1>Miscellany...</h1>
+      </NavLink>
+      <nav>
+        <NavLink
+          className='nav-link'
+          to='/movies'
+        >
+          Movies
+        </NavLink>
+        <NavLink
+          className='nav-link'
+          to='/articles'
+        >
+          Articles
+        </NavLink>
+      </nav>
+      {renderContent()}
     </div>
 
   );
