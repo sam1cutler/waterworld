@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Route } from 'react-router';
 import './App.css';
 
@@ -33,11 +33,11 @@ function App() {
   return (
 
     <div className="App">
-      <NavLink
+      <Link
         to='/'
       >
         <h1>Miscellany...</h1>
-      </NavLink>
+      </Link>
       <nav>
         <NavLink
           className='nav-link'

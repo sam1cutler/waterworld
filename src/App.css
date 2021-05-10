@@ -7,7 +7,7 @@
   border: 1px solid black;
 }
 
-.individual-movie {
+.individual-movie, .individual-article {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,4 +37,35 @@ nav {
   padding: 10px;
   width: 90%;
   border: 1px solid black;
+}
+
+h3 {
+  text-align: center;
+}
+
+a:hover {
+  text-shadow: 0 0 6px grey;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.active {
+  text-shadow: 0 0 6px teal;
+}
+
+.sort-options-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sort-options-container button {
+  margin: 10px;
+  padding: 5px;
+  width: 8rem;
+  height: 3rem;
 }

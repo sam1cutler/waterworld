@@ -7,10 +7,10 @@ const Movies = () => {
     useEffect( () => {
 
         fetch(`https://jsonmock.hackerrank.com/api/movies`)
-        .then(response => response.json())
-        .then(responseJson => {
-            setMovieList(responseJson.data);
-        })
+            .then(response => response.json())
+            .then(responseJson => {
+                setMovieList(responseJson.data);
+            })
 
     }, [] )
 
