@@ -102,13 +102,13 @@ const Articles = () => {
             <div className='sorting-section'>
                 <h3>Sort by...</h3>
                 <div className='sort-options-container'>
-                    <button onClick={handleTitleClick}>
+                    <button onClick={handleTitleClick} className={`${titleDirection}-button`}>
                         Title
                     </button>
-                    <button onClick={handleAuthorClick}>
+                    <button onClick={handleAuthorClick} className={`${authorDirection}-button`}>
                         Author
                     </button>
-                    <button onClick={handleCommentsClick}>
+                    <button onClick={handleCommentsClick} className={`${commentsDirection}-button`}>
                         Number of comments
                     </button>
                 </div>

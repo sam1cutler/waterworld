@@ -17,6 +17,17 @@
   border: 1px solid black;
 }
 
+button {
+  border: 1px solid black;
+}
+
+.descending-button {
+  background-color: rgb(202, 221, 202);
+}
+.ascending-button {
+  background-color: rgb(212, 175, 175);
+}
+
 nav {
   display: flex;
   flex-direction: row;
@@ -69,3 +80,27 @@ a {
   width: 8rem;
   height: 3rem;
 }
+
+.stopwatch-half {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  margin: 10px;
+  padding: 10px;
+  width: 90%;
+}
+
+.stopwatch-half button {
+  margin: 15px;
+  padding: 5px;
+  width: 100px;
+  height: 30px;
+}
+
+.time-element {
+  margin: 0 4px;
+  font-family: 'Courier New', Courier, monospace;
+}
+

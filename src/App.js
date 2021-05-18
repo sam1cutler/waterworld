@@ -5,6 +5,9 @@ import './App.css';
 import Movies from './Movies';
 import Articles from './Articles';
 import LandingPage from './LandingPage';
+import Stopwatch from './stopwatch';
+import MoviesToo from './Movies2';
+import StopwatchTwo from './stopwatch2';
 
 function App() {
 
@@ -24,6 +27,18 @@ function App() {
         <Route 
           path='/articles'
           component={Articles}
+        />
+        <Route 
+          path='/stopwatch'
+          component={Stopwatch}
+        />
+        <Route 
+          path='/movies2'
+          component={MoviesToo}
+        />
+        <Route 
+          path='/stopwatch2'
+          component={StopwatchTwo}
         />
       </>
     )
@@ -50,6 +65,24 @@ function App() {
           to='/articles'
         >
           Articles
+        </NavLink>
+        <NavLink
+          className='nav-link'
+          to='/stopwatch'
+        >
+          Stopwatch
+        </NavLink>
+        <NavLink
+          className='nav-link'
+          to='/movies2'
+        >
+          Movies2
+        </NavLink>
+        <NavLink
+          className='nav-link'
+          to='/stopwatch2'
+        >
+          Stopwatch2
         </NavLink>
       </nav>
       {renderContent()}
